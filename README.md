@@ -44,11 +44,13 @@ C++
   
 1. FCFS: 由於是先到先處理，所以不會產生 Starvation，但可以看出排程效益並不好，可能會造成護航效果(convoy effect) ，即為很多 Processes 均在等待一個需要很長 CPU Time 來完成工作的Process，造成平均等待時間大幅增加的情況發生，且平均等待時間,往返時間增加。
   
-2. RR: 為分時系統(Time-Sharing)設計，每個 process 分配一個 time slice，允許 process 在時間段中執行，時間一到就分配給另外一個 process。也因此不會發生 Starvation，但是根據 time slice 的長短可能會影響排程效率。 
+2. RR: 為分時系統(Time-Sharing)設計，每個 process 分配一個 time slice，允許 process 在時間段中執行，時間一到就分配給另外一個 process。
   
-時間片段太大➔類似於先到先服務排程法。ex: input3 的 time_slice 為 10。
+  也因此不會發生 Starvation，但是根據time slice 的長短可能會影響排程效率。 
   
-時間片段太小➔系統的效率太差(context switch 時間被佔滿， process 根本無法 run 或 run 極短時間)ex: input1 的 time_slice 為 1 造成系統效率較差。影響平均等待時間,往返時間。
+  時間片段太大➔類似於先到先服務排程法。ex: input3 的 time_slice 為 10。
+  
+  時間片段太小➔系統的效率太差(context switch 時間被佔滿， process 根本無法 run 或 run 極短時間)ex: input1 的 time_slice 為 1 造成系統效率較差。影響平均等待時間,往返時間。
   
 3. SRFT: 由剩餘 CPU Brust 最小的 process 先執行。因此效益最佳: 平均 waiting time, Turnaround Time 最少，但是無法得知下一個 CPU 區間長度且如果為需要很長時間來執行的 process 就會一直被 無限推遲，造成 starvation，但可利用的解決辦法:Aging。
   
