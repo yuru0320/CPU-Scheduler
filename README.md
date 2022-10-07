@@ -9,6 +9,8 @@ Xcode Version 13.2.1 (13C100)
 C++
 # 實作方法與流程
 #### 流程:
+<img width="378" alt="截圖 2022-10-07 下午6 05 04" src="https://user-images.githubusercontent.com/95215851/194529436-2d00d96b-9de3-4ef3-9d86-2c4eb9584786.png">
+
 1. 根據使用者的檔名先去判斷檔案是否存在，若不存在則再輸入一次， 反之則進行下一步驟。
 2. 成功開啟檔案後，讀取檔案第一行的數字，分別紀錄為全域變數的處 理方法及 time_slice。
 3. 再依序讀入所需資料且存入 vector<pData> ALLprocess;
@@ -57,4 +59,8 @@ ex: input1 的 time_slice 為 1 造成系統效率較差。影響平均等待時
 5. HRRN: 為動態調整優先順序的演算法，由於作業的服務時間是固 定的，排程優先順序隨著已等待時間的提高而變大，用來避免 Starvation 的情況發生，而導致平均等待時間,往返時間過大。
 
 # input 說明
+  <img width="313" alt="截圖 2022-10-07 下午6 05 16" src="https://user-images.githubusercontent.com/95215851/194529466-bf71476c-6fa3-4d15-b66b-ec538a612e72.png">
+
 # output 說明
+  <img width="415" alt="截圖 2022-10-07 下午6 07 43" src="https://user-images.githubusercontent.com/95215851/194529575-7c5b72a4-d93d-4a03-a2c1-697939f5c322.png">
+
