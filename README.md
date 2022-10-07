@@ -13,12 +13,12 @@ C++
 2. 成功開啟檔案後，讀取檔案第一行的數字，分別紀錄為全域變數的處 理方法及 time_slice。
 3. 再依序讀入所需資料且存入 vector<pData> ALLprocess;
 #### 實作方法:
-1. 將檔案打開後先讀入方法、time_slice後，再 依序讀入 ID, CPU Burst, Arrival Time, Priority，存入 vector<pData> ALLprocess; pData 為 struct，包含所有所需資料。
+1. 將檔案打開後先讀入方法、time_slice後，再 依序讀入 ID, CPU Burst, Arrival Time, Priority，存入 vector。
 2. 先把所有資料依照ArrivalTime由小到大排 序，若 Arrival Time 相同，則由 ID 小的排在 前面。
 3. 再依照讀入的方法，判斷要做何種處理原則。
 * 方法一: FCFS
 
-採取先到先處理的方式，每次取出排序好的第0筆來做處理，並加入甘特圖。
+採取先到先處理的方式，每次取排序好的第0筆來做處理，並加入甘特圖。
 直到此 process 完全做完後，計算 Turnaround, Waiting Time 後，加入輸出的陣列，再取出下一筆，依此類推。
 * 方法二: RR
 
