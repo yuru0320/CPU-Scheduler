@@ -12,13 +12,15 @@ C++
 <img width="378" alt="截圖 2022-10-07 下午6 05 04" src="https://user-images.githubusercontent.com/95215851/194529436-2d00d96b-9de3-4ef3-9d86-2c4eb9584786.png">
 
 1. 根據使用者的檔名先去判斷檔案是否存在，若不存在則再輸入一次， 反之則進行下一步驟。
-2. 成功開啟檔案後，讀取檔案第一行的數字，分別紀錄為全域變數的處 理方法及 time_slice。
+2. 成功開啟檔案後，讀取檔案第一行的數字，分別紀錄為全域變數的處理方法及 time_slice。
 3. 再依序讀入所需資料且存入 vector<pData> ALLprocess;
+4. 依照讀入的方法，判斷要做何種處理原則。
+5. 輸出檔案
 #### 實作方法:
 1. 將檔案打開後先讀入方法、time_slice後，再 依序讀入 ID, CPU Burst, Arrival Time, Priority，存入 vector。
 2. 先把所有資料依照ArrivalTime由小到大排 序，若 Arrival Time 相同，則由 ID 小的排在 前面。
 3. 再依照讀入的方法，判斷要做何種處理原則。
-4. 輸出檔案
+
   
 * 方法一: FCFS
 
