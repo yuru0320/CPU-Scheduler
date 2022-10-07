@@ -7,6 +7,10 @@ macOS Monterey
 Xcode Version 13.2.1 (13C100) 
 # 使用的程式語言 : C++
 # 實作方法與流程
+#### 流程:
+1. 根據使用者的檔名先去判斷檔案是否存在，若不存在則再輸入一次， 反之則進行下一步驟。
+2. 成功開啟檔案後，讀取檔案第一行的數字，分別紀錄為全域變數的處 理方法及 time_slice。
+3. 再依序讀入所需資料且存入 vector<pData> ALLprocess;
 #### 實作方法:
 1. 將檔案打開後先讀入方法、time_slice後，再 依序讀入 ID, CPU Burst, Arrival Time, Priority，存入 vector<pData> ALLprocess; pData 為 struct，包含所有所需資料。
 2. 先把所有資料依照ArrivalTime由小到大排 序，若 Arrival Time 相同，則由 ID 小的排在 前面。
@@ -31,3 +35,15 @@ Xcode Version 13.2.1 (13C100)
 * 方法六:
   
 為執行1-6方法後的結果。
+  
+# 不同排程法的比較:
+<img width="677" alt="截圖 2022-10-07 下午5 55 45" src="https://user-images.githubusercontent.com/95215851/194527337-ad1b17d1-3848-4c79-8245-4f2d83252eab.png">
+<img width="660" alt="截圖 2022-10-07 下午5 55 53" src="https://user-images.githubusercontent.com/95215851/194527355-c1be2710-b1c3-466f-bf73-9e9adff9f087.png">
+依照上圖及各排程方法所採取的特性，可以得知以下:
+1. FCFS: 由於是先到先處理，所以不會產生 Starvation，但可以看出 排程效益並不好，可能會造成護航效果(convoy effect) ，即為很多 Processes 均在等待一個需要很長 CPU Time 來完成工作的 Process，造成平均等待時間大幅增加的情況發生，且平均等待時 間,往返時間增加。
+2. RR: 為分時系統(Time-Sharing)設計，每個 process 分配一個 time slice，允許 process 在時間段中執行，時間一到就分配給另外一個 process。也因此不會發生 Starvation，但是根據 time slice 的長短
+可能會影響排程效率。 時間片段太大➔類似於先到先服務排程法。ex: input3 的 time_slice 為 10。
+時間片段太小➔系統的效率太差(context switch 時間被佔滿， process 根本無法 run 或 run 極短時間)ex: input1 的 time_slice 為 1 造成系統效率較差。影響平均等待時間,往返時間。
+3. SRFT: 由剩餘 CPU Brust 最小的 process 先執行。因此效益最佳: 平均 waiting time, Turnaround Time 最少，但是無法得知下一個 CPU 區間長度且如果為需要很長時間來執行的 process 就會一直被 無限推遲，造成 starvation，但可利用的解決辦法:Aging。
+4. PPRR: 為先採用高優先權的程序會最先被分配到 CPU，相同優先 權則進行 RR，優先權排程可能會造成低優先權的 process starvation，並且可能也會擁有 RR 的 time_slice 問題，由於有些 processes 採用優先權排程，因此可以不用全部 processes 都在輪流 執行，因此由圖可知，平均等待時間、往返時間比單純做 RR 排 程的少。
+5. HRRN: 為動態調整優先順序的演算法，由於作業的服務時間是固 定的，排程優先順序隨著已等待時間的提高而變大，用來避免 Starvation 的情況發生，而導致平均等待時間,往返時間過大。
