@@ -60,7 +60,11 @@ ex: input1 的 time_slice 為 1 造成系統效率較差。影響平均等待時
 
 # input 說明
   <img width="313" alt="截圖 2022-10-07 下午6 05 16" src="https://user-images.githubusercontent.com/95215851/194529466-bf71476c-6fa3-4d15-b66b-ec538a612e72.png">
+  第一行2個數字代表: 使用方法、time_slice。
+  第三行開始包含四個數字：ID, CPU Brust, Arrival time, Priority
+  
 
 # output 說明
   <img width="415" alt="截圖 2022-10-07 下午6 07 43" src="https://user-images.githubusercontent.com/95215851/194529575-7c5b72a4-d93d-4a03-a2c1-697939f5c322.png">
+  先輸出甘特圖
 
